@@ -1,0 +1,13 @@
+directories:
+  output: dist
+  buildResources: build
+appId: com.Allah.Allahchat
+productName: Allah Chat Encrypted Chat
+target: NSIS
+nsis:
+  oneClick: false
+  perMachine: true
+  allowElevation: true
+  allowToChangeInstallationDirectory: true
+files: []
+electronVersion: 22.0.0

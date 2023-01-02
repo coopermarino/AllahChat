@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self'">
+    <title>Chat App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <script src="js/crypto-js.js"></script>
+    <script src="js/jquery-3.6.1.js"></script>
+  </head>
+  <body>
+    <nav>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <div class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="navbar-header">
+                <button class="navbar-toggle" data-target="#mobile_menu" data-toggle="collapse">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">Brothers In Allah</a>
+              </div>
+              <div class="navbar-collapse collapse" id="mobile_menu">
+                <ul class="nav navbar-nav">
+                  <li class="active">
+                    <a href="index.html">Home</a>
+                  </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                  <li>
+                    <a href="profile.php">Profile</a>
+                  </li>
+                  <li>
+                    <a href="profile" class="dropdown-toggle" data-toggle="dropdown">
+                      <span class="glyphicon glyphicon-user"></span>
+                      <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <button id="logout-button">Log Out</button>
+                      <button id="deletecookie">Delete Cookie</button>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <h1 style="text-align:center; font-weight:bold;">Messages</h1>
+    <hr style="width:80%;height:2px;border-width:0;color:gray;background-color:gray">
+    <div class="h-screen w-screen flex flex-col justify-between">
+      <div id="chat" class="p-3 overflow-auto msgContainer"></div>
+    </div>
+    <style>
+      .userinput {
+        display: flex;
+        position: fixed;
+        left: 50%;
+        bottom: 20px;
+        transform: translate(-50%, -50%);
+        margin: 0 auto;
+      }
+
+      .userinput input {
+        width: 500px;
+      }
+
+      #chat {
+        height: 70vh;
+        width: 80%;
+        overflow: auto;
+        margin: auto;
+      }
+
+      .container {
+        border: 2px solid #dedede;
+        background-color: #f1f1f1;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 10px 0;
+        width: 45vw;
+        word-wrap: break-word;
+      }
+
+      /* Darker chat container */
+      .darker {
+        border-color: #ccc;
+        background-color: #ddd;
+        position: relative;
+        right: -30vw;
+      }
+
+      /* Clear floats */
+      .container::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+
+      /* Style images */
+      .container img {
+        float: left;
+        max-width: 100px;
+        max-height: 100px;
+        width: 100%;
+        margin-right: 20px;
+        border-radius: 50%;
+        padding: 10px;
+      }
+
+      /* Style the right image */
+      .container img.right {
+        float: right;
+        margin-left: 20px;
+        margin-right: 0;
+      }
+
+      /* Style time text */
+      .name-right {
+        float: right;
+        color: #aaa;
+      }
+
+      /* Style time text */
+      .name-left {
+        float: left;
+        color: #999;
+      }
+
+      .name {
+        font-weight: bold;
+      }
+
+      .usersWrapper {
+        padding: 50px 30px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 250px));
+        grid-template-rows: repeat(4, minmax(250px, 250px));
+        justify-content: center;
+      }
+
+      .user_box {
+        border: 1px black solid;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        padding: 20% 0;
+      }
+
+      .user_box img {
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+      }
+    </style>
+    <audio src="sounds/noti.mp3" id="audio" controls style="display:none"></audio>
+    <div class='userinput'>
+      <input id='message' class='inputbox' name='MSG' placeholder='Message:' />
+      <button id="sendmsgbtn" name="SendMSG">Send Message</button>
+    </div>
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/jquery.min.js"></script>
+      <script src="scripts/index/loadsql.js"></script>
+      <script src="scripts/index/checktoken.js"></script>
+      <script src="scripts/index/savesql.js"></script>
+      <script src="scripts/index/websocket.js"></script>
+      <script src="scripts/index/logout.js"></script>
+  </body>
+</html>
